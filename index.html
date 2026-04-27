@@ -428,6 +428,166 @@
   }
   .nl-btn:hover { background: var(--gold-light); }
 
+  /* ── BEER TOURS ──────────────────────────────────────────────── */
+  .tours-section {
+    padding: 3.5rem 2rem;
+    background: var(--cream);
+  }
+  .tours-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .tour-block {
+    margin-bottom: 3.5rem;
+  }
+  .tour-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--green);
+    margin-bottom: 1.75rem;
+  }
+  .tour-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  .tour-meta {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .tour-summary {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.75rem;
+    max-width: 700px;
+    line-height: 1.65;
+  }
+  .stops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .stop-card {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  }
+  .stop-card:hover {
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,106,31,0.1);
+  }
+  .stop-card-top {
+    background: var(--green-dark);
+    padding: 0.75rem 1rem;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .stop-city {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .stop-date {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+  .stop-body {
+    padding: 0.9rem 1rem 1rem;
+  }
+  .stop-highlight {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+  .stop-beers {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .beer-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    background: var(--green-light);
+    color: var(--green-dark);
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .stop-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green-light);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .stop-link:hover {
+    color: var(--green-dark);
+    border-color: var(--green);
+  }
+  .tour-final {
+    margin-top: 1.25rem;
+    background: var(--gold-light);
+    border: 1.5px solid rgba(184,134,11,0.25);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .tour-final-stats {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .tour-stat {
+    text-align: center;
+  }
+  .tour-stat-num {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--green-dark);
+    display: block;
+    line-height: 1;
+  }
+  .tour-stat-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.2rem;
+  }
+  .tour-final-link {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-dark);
+    text-decoration: none;
+    border: 1.5px solid var(--green);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tour-final-link:hover {
+    background: var(--green);
+    color: #fff;
+  }
+
   /* ── FOOTER ──────────────────────────────────────────────────── */
   footer {
     background: var(--ink);
@@ -519,6 +679,7 @@
     <li><a href="#quest">BJCP Quest</a></li>
     <li><a href="#gueuze">Gueuze Project</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#tours">Beer Tours</a></li>
   </ul>
   <div class="nav-sub">Est. 2018 · Solar Powered · San Francisco</div>
 </nav>
@@ -665,6 +826,536 @@
         <div><div class="tl-date">Oct 14, 2028</div><div class="tl-desc">Release — 10th anniversary</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── BEER TOURS ── -->
+<section class="tours-section" id="tours">
+  <div class="tours-inner">
+    <div class="section-header" style="margin-bottom:2rem">
+      <h2 class="section-title">Beer Tours</h2>
+      <span class="section-tag">Field research, conducted rigorously</span>
+    </div>
+
+    <!-- TOUR 1: Belgium / Germany / Czechia 2025 -->
+    <div class="tour-block">
+      <div class="tour-header">
+        <h3 class="tour-title">Belgium · Germany · Czechia</h3>
+        <span class="tour-meta">July 2025 · 18 days · 11 cities · with Herb</span>
+      </div>
+      <p class="tour-summary">
+        Three weeks, three countries, 74 beers, ~19 styles. From the lambic bars of Brussels and
+        the hidden alleys of Bruges to the smoky taverns of Bamberg, the tank Pilsners of Prague,
+        and the Biergärten of Munich. A deep dive into the heartland of European brewing tradition.
+      </p>
+
+      <div class="stops-grid">
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Brussels</span>
+            <span class="stop-date">July 6–11</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Home base for the Belgian leg. Café Delirium Village (2,004 beers on offer), a rooftop bar with views of the old city, and the unmissable Cantillon brewery — the living cathedral of spontaneous fermentation. A pivotal Gueuze at Moeder Lambic.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Tripel Karmeliet</span>
+              <span class="beer-tag">Leffe Blond</span>
+              <span class="beer-tag">Cantillon Gueuze</span>
+              <span class="beer-tag">Lambic</span>
+              <span class="beer-tag">Kriek</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/brussels" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Bruges</span>
+            <span class="stop-date">July 8</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">A canal-laced medieval city with one goal: De Garre, hidden down an alley barely a meter wide. First in the door at noon for the dangerously smooth Tripel van de Garre (11.5% ABV) — served with a small cheese plate as a matter of policy.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Tripel van de Garre 11.5%</span>
+              <span class="beer-tag">Straffe Hendrik</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/bruges-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Ghent</span>
+            <span class="stop-date">July 9</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">A day trip to De Dulle Griet for their Max van 't Huis beer, served in a Kwak glass — the bulb-bottomed coachman's vessel designed in the 1790s so drivers could drink without spilling. The bar was closed on arrival; worth waiting for.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Max van 't Huis</span>
+              <span class="beer-tag">Kwak glass</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/ghent-the-belgiumgermanyczechia-beer" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Mechelen</span>
+            <span class="stop-date">July 10</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Het Anker Brewery, with records going back to the 15th century and five generations of the van Breedam family. Home of the Gouden Carolus (Golden Charles) line of strong Belgian ales, named for the gold coins of Emperor Charles V.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Gouden Carolus Classic</span>
+              <span class="beer-tag">Gouden Carolus Whisky Infused</span>
+              <span class="beer-tag">Belgian Dark Strong</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/mechelen-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Düsseldorf</span>
+            <span class="stop-date">July 12</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">The spiritual home of Altbier — the "old beer" made with ale yeast fermented cold, producing something between a lager and an ale. The Altstadt brewpubs serve it in small 0.2L Stange glasses, perpetually refilled by roving waiters until you cover your glass.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Altbier</span>
+              <span class="beer-tag">Uerige Alt</span>
+              <span class="beer-tag">Füchschen Alt</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/dusseldorf-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Köln / Cologne</span>
+            <span class="stop-date">July 13</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">A rest day in the city of Kölsch — the crisp, delicate ale that may only legally bear that name if brewed within the city limits. The Cologne Cathedral, Roman walls embedded in the sidewalk, and the brewery taprooms of the Altstadt. One beer, done perfectly.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Kölsch</span>
+              <span class="beer-tag">Früh Kölsch</span>
+              <span class="beer-tag">Reissdorf</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/kolncologne-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Nuremberg</span>
+            <span class="stop-date">July 14</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Imperial city of the Holy Roman Empire, UNESCO World Heritage site, and home to a rich brewing tradition. Medieval gates, a moated old city, and the shadow of the postwar trials — history runs very deep here. Franconian lagers and the local brewing culture explored.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Franconian Lager</span>
+              <span class="beer-tag">Kellerbier</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/nuremberg-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Bamberg</span>
+            <span class="stop-date">July 15</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">The undisputed capital of Rauchbier. Three breweries in one day: Fässla, Schlenkerla (the mother lode of smoke beer), and Spezial — all recommended by neighbor Tobias, a German native who knows these streets. A direct comparison to the Rauchbier brewed at home.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Schlenkerla Rauchbier Märzen</span>
+              <span class="beer-tag">Schlenkerla Urbock</span>
+              <span class="beer-tag">Spezial Rauchbier</span>
+              <span class="beer-tag">Fässla Lagerbier</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/bamberg-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Plzeň</span>
+            <span class="stop-date">July 16</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">The city that invented the pale lager. A tour of the Pilsner Urquell brewery and the story of how citizens revolted against bad beer in 1838, hired a Bavarian brewer, and accidentally changed the course of brewing history. The world's first golden lager, tasted at its source.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Pilsner Urquell</span>
+              <span class="beer-tag">Czech Pale Lager</span>
+              <span class="beer-tag">Unfiltered Pilsner</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/plsen-the-belgiumgermanyczechia-beer" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Prague</span>
+            <span class="stop-date">July 17–18</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">In pursuit of "tank beer" — unfiltered Pilsner Urquell served directly from conditioning tanks, unpasteurized and alive. A city of extraordinary beauty, extraordinary beer culture, and the discovery that not all tank beer is created equal. U Fleků, a 500-year-old brewpub, for dark lager.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Tank Pilsner Urquell</span>
+              <span class="beer-tag">U Fleků Dark Lager</span>
+              <span class="beer-tag">Czech Dark Lager</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/praguepraha-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Munich</span>
+            <span class="stop-date">July 19–22</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">The grand finale. Three days, 8.2 liters (Peter's share). The Paulaner Biergarten, the Hofbräuhaus, the English Garden. Missing a train connection at Schwandorf turned into an unexpected beer discovery at a tiny Bahnhof market. <em>Semper Gumby.</em></p>
+            <div class="stop-beers">
+              <span class="beer-tag">Munich Helles</span>
+              <span class="beer-tag">Märzen</span>
+              <span class="beer-tag">Weissbier</span>
+              <span class="beer-tag">Paulaner</span>
+              <span class="beer-tag">Hofbräu</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/munich-the-belgiumgermanyczechia" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+      </div><!-- end stops-grid -->
+
+      <!-- Tour stats / final thoughts -->
+      <div class="tour-final">
+        <div class="tour-final-stats">
+          <div class="tour-stat">
+            <span class="tour-stat-num">18</span>
+            <span class="tour-stat-label">Days</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">11</span>
+            <span class="tour-stat-label">Cities</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">74</span>
+            <span class="tour-stat-label">Beers</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">~19</span>
+            <span class="tour-stat-label">Styles</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">17</span>
+            <span class="tour-stat-label">Train rides</span>
+          </div>
+        </div>
+        <a class="tour-final-link" href="https://petersargent.substack.com/p/final-thoughts-the-belgiumgermanyczechia" target="_blank" rel="noopener">Final Thoughts →</a>
+      </div>
+    </div><!-- end tour-block -->
+
+    <!-- TOUR 2: Michigan / Wisconsin / Minnesota June 2024 -->
+    <div class="tour-block">
+      <div class="tour-header">
+        <h3 class="tour-title">Michigan · Wisconsin · Minnesota</h3>
+        <span class="tour-meta">June 2024 · 4 days · 7 breweries · solo road trip</span>
+      </div>
+      <p class="tour-summary">
+        A solo road trip through the American Midwest, bookended by a visit to Josh Emrick —
+        former student, dear friend, and the person responsible for Peter's homebrewing career —
+        in Ann Arbor, and capped by a week of choral singing with Mastersingers USA in Minneapolis.
+        Eight breweries across three states, including a family-farm-turned-brewery in rural Wisconsin
+        and a chemistry professor's taproom in Appleton.
+      </p>
+
+      <div class="stops-grid">
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Grand Rapids, MI</span>
+            <span class="stop-date">June 10</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Three breweries in one day. Founders Brewing — one of the defining craft breweries of the Midwest, home of KBS and CBS. City Built Brewing, whose taproom reflects the diversity of the city. Brass Ring Brewing to close out the evening.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Founders KBS</span>
+              <span class="beer-tag">Founders Centennial IPA</span>
+              <span class="beer-tag">City Built</span>
+              <span class="beer-tag">Brass Ring</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-01" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Battle Creek, MI</span>
+            <span class="stop-date">June 11</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">New Holland Brewing's Battle Creek outpost — visited on the strength of Dragon's Milk, their bourbon-barrel porter widely available in California. The Battle Creek location is a brewpub only; the beer itself is made in Holland, MI on the shores of Lake Michigan.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Dragon's Milk</span>
+              <span class="beer-tag">Barrel-Aged Porter</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-02" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Kalamazoo, MI</span>
+            <span class="stop-date">June 11</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Bell's Eccentric Café — the taproom of Bell's Brewery, one of the oldest and most influential craft breweries in the Midwest. Home of Two Hearted Ale, perennially among the most celebrated American IPAs. A pilgrimage stop for any serious beer traveler in Michigan.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Bell's Two Hearted Ale</span>
+              <span class="beer-tag">Bell's Oberon</span>
+              <span class="beer-tag">Bell's Kalamazoo Stout</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-02" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Elkhorn, WI</span>
+            <span class="stop-date">June 12</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Duesterbeck's Brewing — a sixth-generation family farm in rural Wisconsin that pivoted from dairy and pigs to craft beer in the 1980s. Arrived an hour early due to a forgotten time zone change. Owner Laura came out to the parking lot and invited him to sit in the shade until they opened. A very Wisconsin welcome.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Farm Brewery</span>
+              <span class="beer-tag">Craft Lager</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-03" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Appleton, WI</span>
+            <span class="stop-date">June 12</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">McFleshman's Brewing — founded by Allison Fleshman, Associate Professor of Chemistry at Lawrence University, and her husband Bob, on their sixth anniversary of opening. A private tour arranged by historian colleague Brigid Vance. The brewery's dream dinner guests: Hildegard von Bingen, who first added hops to beer in the 12th century.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">McFleshman's House Beers</span>
+              <span class="beer-tag">Homebrewer-Founded</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-04" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Minneapolis, MN</span>
+            <span class="stop-date">June 13</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">The Yard House in St. Louis Park — a suburb that counts the Coen Brothers, Al Franken, Thomas Friedman, and the real Charlie Brown among its notable alumni. The Minneapolis leg capped the beertinerary before a week of choral singing with Mastersingers USA. A COVID-19 infection was the parting gift.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Yard House Tap List</span>
+              <span class="beer-tag">Midwest Craft Beer</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-trail-04" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+      </div><!-- end stops-grid -->
+
+      <div class="tour-final">
+        <div class="tour-final-stats">
+          <div class="tour-stat">
+            <span class="tour-stat-num">4</span>
+            <span class="tour-stat-label">Days</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">3</span>
+            <span class="tour-stat-label">States</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">7</span>
+            <span class="tour-stat-label">Breweries</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">~400</span>
+            <span class="tour-stat-label">Miles driven</span>
+          </div>
+        </div>
+        <a class="tour-final-link" href="https://petersargent.substack.com/p/on-the-beer-trail-04" target="_blank" rel="noopener">Final instalment →</a>
+      </div>
+    </div><!-- end tour-block -->
+
+    <!-- TOUR 3: Massachusetts / New York May 2024 -->
+    <div class="tour-block">
+      <div class="tour-header">
+        <h3 class="tour-title">Massachusetts · New York</h3>
+        <span class="tour-meta">May 2024 · 9 days · 13 breweries · solo road trip</span>
+      </div>
+      <p class="tour-summary">
+        Sandwiched between a choral workshop at Tanglewood with Berkshire Choral International
+        and a 55th reunion at Amherst College, a solo road trip through western Massachusetts
+        and upstate New York. Thirteen breweries in nine days — from a Baltic Porter specialist
+        in Framingham to a Belgian ale destination in Cooperstown, and ending at Treehouse
+        in South Deerfield where a 50/50 perfect beer was found.
+      </p>
+
+      <div class="stops-grid">
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Framingham, MA</span>
+            <span class="stop-date">May 22</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Jack's Abby Craft Lagers — specialists in lager fermented with ale character. Home of Framinghammer Baltic Porter (10% ABV), introduced by brother Manny and beloved ever since. A name that references the city, the effect of overconsumption, and an actual tool — all at once.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Framinghammer Baltic Porter</span>
+              <span class="beer-tag">Craft Lagers</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-05" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Lenox & Lee, MA</span>
+            <span class="stop-date">May 22–26</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Antimony Brewing — founded by former chemical engineer Rob Trask, whose periodic-table obsession runs through every element of the brewery. Antimony is element #51; his Lee outpost is called 51 Park. The double wolf-head logo references alchemy. Visited four times over five days while singing at Tanglewood.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Antimony House Ales</span>
+              <span class="beer-tag">Chemistry-themed tap list</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-06" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Dalton, MA</span>
+            <span class="stop-date">May 23</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Shire Beer Co. — a Berkshires stopover on the way between Tanglewood commitments. Small, local, and worth the detour for anyone making their way through western Massachusetts.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Shire Beer Co.</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-06" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Seneca Lake, NY</span>
+            <span class="stop-date">May 27</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Seneca Lake Brewing and The Beerocracy in Rock Stream, then Twisted Rail in Geneva — two stops on the western shore of Seneca Lake in the Finger Lakes wine country, where craft beer is carving out its own identity alongside the vineyards.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Seneca Lake Brewing</span>
+              <span class="beer-tag">The Beerocracy</span>
+              <span class="beer-tag">Twisted Rail</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-06" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Utica · Rome · Syracuse, NY</span>
+            <span class="stop-date">May 28</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Three breweries in one day across central New York. Nail Creek Pub in Utica for lunch, Copper City Brewing in Rome (named for the city's copper-mining heritage), and Talking Cursive in Syracuse for a memorable dinner. Prison City Pub in Auburn — named for New York's oldest maximum-security prison — saved for a future tour.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Nail Creek Pub</span>
+              <span class="beer-tag">Copper City Brewing</span>
+              <span class="beer-tag">Talking Cursive</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-07" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">Cooperstown, NY</span>
+            <span class="stop-date">May 29</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Brewery Ommegang — discovered via a tip from fellow singers at Tanglewood who insisted it was non-negotiable. The name comes from a 1549 royal procession through Brussels. A "three brew-tini" lunch featuring Rare Vos, their amber ale. Singer friends were right: it's a destination brewery.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Rare Vos Amber Ale</span>
+              <span class="beer-tag">Belgian-style ales</span>
+              <span class="beer-tag">Game of Thrones series</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-08" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">South Glens Falls, NY</span>
+            <span class="stop-date">May 29</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Common Roots Brewing Company — a stop en route north after Ommegang, in a small city near the foothills of the Adirondacks. Local, unpretentious, and a good complement to the grandeur of Ommegang earlier that day.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Common Roots</span>
+              <span class="beer-tag">Upstate NY Craft</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-08" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-top">
+            <span class="stop-city">South Deerfield, MA</span>
+            <span class="stop-date">May 30</span>
+          </div>
+          <div class="stop-body">
+            <p class="stop-highlight">Treehouse Brewing Company — widely regarded as one of the finest craft breweries in New England, known for their hazy IPAs. On the day of the visit, a beer scored a perfect 50/50 — an experience rare enough to be worth noting and unfortunate enough not to have been written up before time ran out on the series.</p>
+            <div class="stop-beers">
+              <span class="beer-tag">Treehouse Hazy IPA</span>
+              <span class="beer-tag">50/50 perfect score</span>
+            </div>
+            <a class="stop-link" href="https://petersargent.substack.com/p/on-the-beer-tour-08" target="_blank" rel="noopener">Read the full account →</a>
+          </div>
+        </div>
+
+      </div><!-- end stops-grid -->
+
+      <div class="tour-final">
+        <div class="tour-final-stats">
+          <div class="tour-stat">
+            <span class="tour-stat-num">9</span>
+            <span class="tour-stat-label">Days</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">2</span>
+            <span class="tour-stat-label">States</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">13</span>
+            <span class="tour-stat-label">Breweries</span>
+          </div>
+          <div class="tour-stat">
+            <span class="tour-stat-num">50/50</span>
+            <span class="tour-stat-label">Best score</span>
+          </div>
+        </div>
+        <a class="tour-final-link" href="https://petersargent.substack.com/p/on-the-beer-tour-08" target="_blank" rel="noopener">Final instalment →</a>
+      </div>
+    </div><!-- end tour-block -->
+
   </div>
 </section>
 
