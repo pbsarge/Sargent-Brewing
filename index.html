@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sargent Brewing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:       #2d6a1f;
+    --green-dark:  #1e4a14;
+    --green-light: #e8f0e4;
+    --green-mid:   #4a8a35;
+    --gold:        #b8860b;
+    --gold-light:  #f5eed6;
+    --cream:       #faf8f2;
+    --ink:         #1a1a18;
+    --muted:       #5a5a52;
+    --border:      rgba(45,106,31,0.18);
+    --serif:       'Playfair Display', Georgia, serif;
+    --body:        'Source Serif 4', Georgia, serif;
+    --mono:        'DM Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--green-dark);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 2rem;
+    display: flex; align-items: center; gap: 2rem;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex; gap: 0; list-style: none; flex: 1;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0 1rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    height: 56px;
+    line-height: 56px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+  .nav-sub {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  /* ── HERO ────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--green-dark);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+  }
+  .hero-inner { position: relative; }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+  }
+  .hero-sub {
+    font-family: var(--body);
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: flex; gap: 0; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+  }
+  .stat {
+    flex: 1;
+    padding: 1rem 0.5rem;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* ── TAP LIST ────────────────────────────────────────────────── */
+  .tap-section {
+    padding: 3.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--green);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  .tap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  /* ── BEER BUTTON ─────────────────────────────────────────────── */
+  .beer-btn {
+    display: block;
+    text-decoration: none;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.1rem 0.9rem;
+    transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .beer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s ease;
+  }
+  .beer-btn:hover {
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,106,31,0.12);
+  }
+  .beer-btn:hover::before { transform: scaleX(1); }
+
+  .btn-style-badge {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-mid);
+    background: var(--green-light);
+    padding: 2px 7px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  .btn-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .btn-specs {
+    display: flex; gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .btn-spec-val {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .btn-arrow {
+    position: absolute;
+    bottom: 0.8rem; right: 0.9rem;
+    font-size: 0.75rem;
+    color: var(--green);
+    opacity: 0;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  .beer-btn:hover .btn-arrow {
+    opacity: 1;
+    transform: translate(2px, -1px);
+  }
+  .btn-batch {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    opacity: 0.7;
+  }
+
+  /* No-doc state */
+  .beer-btn.no-doc {
+    cursor: default;
+    opacity: 0.7;
+  }
+  .beer-btn.no-doc:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
+  }
+  .beer-btn.no-doc::before { display: none; }
+
+  /* ── BJCP QUEST ──────────────────────────────────────────────── */
+  .quest-section {
+    background: var(--green-dark);
+    color: #fff;
+    padding: 3.5rem 2rem;
+  }
+  .quest-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .quest-section .section-title { color: #fff; }
+  .quest-section .section-tag   { color: rgba(255,255,255,0.45); }
+  .quest-section .section-header { border-color: rgba(255,255,255,0.2); }
+
+  .quest-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .quest-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #d4a520);
+    border-radius: 999px;
+    width: 75.6%;
+    transition: width 1s ease;
+  }
+  .quest-labels {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.5rem;
+  }
+  .quest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+  .quest-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 0.5rem 0.7rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .quest-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .quest-dot.done     { background: var(--gold); }
+  .quest-dot.progress { background: #7bc67a; }
+  .quest-dot.planned  { background: rgba(255,255,255,0.35); }
+  .quest-item-name {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.3;
+  }
+  .quest-legend {
+    display: flex; gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .quest-legend span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ── GUEUZE PROJECT ──────────────────────────────────────────── */
+  .gueuze-section {
+    padding: 3.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .gueuze-card {
+    background: var(--gold-light);
+    border: 1.5px solid rgba(184,134,11,0.3);
+    border-radius: 10px;
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+  }
+  .gueuze-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+  }
+  .gueuze-timeline {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    min-width: 200px;
+  }
+  .timeline-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+  }
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tl-dot.done    { background: var(--green); }
+  .tl-dot.pending { background: var(--gold); border: 2px solid var(--gold-light); }
+  .tl-date { color: var(--gold); font-weight: 500; }
+  .tl-desc { color: var(--muted); }
+
+  /* ── NEWSLETTER STRIP ────────────────────────────────────────── */
+  .nl-strip {
+    background: var(--green);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .nl-strip h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .nl-strip p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .nl-btn {
+    display: inline-block;
+    background: #fff;
+    color: var(--green-dark);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.7rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+  .nl-btn:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ──────────────────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    padding: 2rem;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  footer span { color: rgba(255,255,255,0.5); }
+
+  /* ── MODAL OVERLAY for beer doc ──────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 10px;
+    width: 100%; max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .modal-header {
+    padding: 1rem 1.25rem;
+    background: var(--green-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .modal-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: #fff;
+  }
+  .modal-close {
+    background: none; border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.4rem;
+    cursor: pointer; line-height: 1;
+    padding: 0.25rem 0.5rem;
+  }
+  .modal-close:hover { color: #fff; }
+  .modal-body {
+    flex: 1;
+    overflow: auto;
+    padding: 1.5rem 2rem;
+  }
+  .modal-iframe {
+    width: 100%; height: 70vh;
+    border: none;
+  }
+  .modal-open-link {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .modal-open-link:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-stats { flex-wrap: wrap; }
+    .gueuze-card { grid-template-columns: 1fr; }
+    .modal-body { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Sargent Brewing — San Francisco homebrewery, solar powered, est. 2018</h2>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Sargent Brewing</div>
+  <ul class="nav-links">
+    <li><a href="#tap">On Tap</a></li>
+    <li><a href="#quest">BJCP Quest</a></li>
+    <li><a href="#gueuze">Gueuze Project</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+  <div class="nav-sub">Est. 2018 · Solar Powered · San Francisco</div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Sargent Brewing</div>
+    <h1>Handcrafted<br><em style="font-style:italic;color:rgba(255,255,255,0.85)">one batch</em> at a time</h1>
+    <p class="hero-sub">Solar-powered homebrewery · San Francisco · est. October 14, 2018</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">243</span>
+        <span class="stat-label">Batches brewed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">93</span>
+        <span class="stat-label">BJCP styles</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">75<small style="font-size:1.2rem">%</small></span>
+        <span class="stat-label">Quest progress</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">265</span>
+        <span class="stat-label">Newsletters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TAP LIST ── -->
+<section class="tap-section" id="tap">
+  <div class="section-header">
+    <h2 class="section-title">What's on tap</h2>
+    <span class="section-tag">Click any beer for tasting notes &amp; specs</span>
+  </div>
+  <div class="tap-grid" id="tap-grid">
+    <!-- Populated by JS below -->
+  </div>
+</section>
+
+<!-- ── BJCP QUEST ── -->
+<section class="quest-section" id="quest">
+  <div class="quest-inner">
+    <div class="section-header">
+      <h2 class="section-title">The BJCP Quest</h2>
+      <span class="section-tag">All 123 styles by October 14, 2028</span>
+    </div>
+    <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:600px;font-style:italic">
+      On October 14, 2018 I brewed my first batch. The goal: brew every one of the 123 BJCP beer styles before the 10th anniversary. Thirty styles remain.
+    </p>
+    <div class="quest-bar-wrap">
+      <div class="quest-bar"></div>
+    </div>
+    <div class="quest-labels">
+      <span>0 styles</span>
+      <span>93 of 123 complete — 75.6%</span>
+      <span>Oct 14, 2028</span>
+    </div>
+    <div class="quest-legend">
+      <span><span class="quest-dot done" style="display:inline-block"></span> Brewed</span>
+      <span><span class="quest-dot progress" style="display:inline-block"></span> Conditioning / in progress</span>
+      <span><span class="quest-dot planned" style="display:inline-block"></span> Planned</span>
+    </div>
+    <div class="quest-grid">
+      <!-- Remaining 30 styles -->
+      <div class="quest-item"><div class="quest-dot progress"></div><div class="quest-item-name">02C. International Dark Lager</div></div>
+      <div class="quest-item"><div class="quest-dot progress"></div><div class="quest-item-name">16D. Foreign Extra Stout</div></div>
+      <div class="quest-item"><div class="quest-dot progress"></div><div class="quest-item-name">17D. English Barleywine</div></div>
+      <div class="quest-item"><div class="quest-dot progress"></div><div class="quest-item-name">33A. Wood-Aged Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">21B. Specialty IPA: Black</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">21B. Specialty IPA: Brown</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">21B. Specialty IPA: Red</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">21B. Specialty IPA: Rye</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">23C. Oud Bruin</div></div>
+      <div class="quest-item"><div class="quest-dot done"></div><div class="quest-item-name">23E. Gueuze <em style="font-size:0.58rem;opacity:0.6">— blending 2028</em></div></div>
+      <div class="quest-item"><div class="quest-dot done"></div><div class="quest-item-name">23F. Fruit Lambic <em style="font-size:0.58rem;opacity:0.6">— planned</em></div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Kentucky Common</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Lichtenhainer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. London Brown Ale</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Piwo Grodziskie</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Pre-Prohibition Porter</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Roggenbier</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Sahti</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">28A. Brett Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">28B. Mixed-Fermentation Sour</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">28C. Wild Specialty Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">29A. Fruit Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">29B. Fruit and Spice Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">29C. Specialty Fruit Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">30D. Specialty Spice Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">32A. Classic Smoked Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">32B. Specialty Smoked Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">33B. Specialty Wood-Aged Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">34C. Experimental Beer</div></div>
+      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Hist. Beer: Gose variant</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GUEUZE PROJECT ── -->
+<section class="gueuze-section" id="gueuze">
+  <div class="section-header">
+    <h2 class="section-title">The Gueuze Project</h2>
+    <span class="section-tag">Grand finale · Oct 14, 2028</span>
+  </div>
+  <div class="gueuze-card">
+    <div>
+      <p>
+        A gueuze is a blend of young and aged spontaneously-fermented lambics, refermented in the bottle.
+        Three vintages are aging simultaneously — the 2025, 2026 "faux" (kettle-soured), and 2026 "real"
+        (open fermentation) lambics. They will be blended in January 2028 and released on
+        <strong>October 14, 2028</strong> — the brewery's tenth anniversary — as the grand finale of the BJCP quest.
+      </p>
+      <p style="margin-top:0.75rem">
+        Follow the project in the weekly newsletter, where every lambic brew day, every gravity reading,
+        and every tasting note from the aging barrels has been documented across more than 45 issues.
+      </p>
+    </div>
+    <div class="gueuze-timeline">
+      <div class="timeline-item">
+        <div class="tl-dot done"></div>
+        <div><div class="tl-date">Feb 2025</div><div class="tl-desc">Lambic 2025 brewed (#189)</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot done"></div>
+        <div><div class="tl-date">Jan 2026</div><div class="tl-desc">Lambic 2026 faux (#235)</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot done"></div>
+        <div><div class="tl-date">Feb 2026</div><div class="tl-desc">Lambic 2026 real (#236)</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot pending"></div>
+        <div><div class="tl-date">Early 2027</div><div class="tl-desc">Lambic 2027 vintage</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot pending"></div>
+        <div><div class="tl-date">Jan 2028</div><div class="tl-desc">Blending session</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot pending"></div>
+        <div><div class="tl-date">Oct 14, 2028</div><div class="tl-desc">Release — 10th anniversary</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<section class="nl-strip" id="newsletter">
+  <h2>The Beer/Wine Newsletter</h2>
+  <p>265 issues · weekly since February 2023 · brewing notes, tasting reports, beer tours &amp; more</p>
+  <a class="nl-btn" href="https://petersargent.substack.com" target="_blank" rel="noopener">
+    Subscribe on Substack →
+  </a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>Sargent Brewing</span> · San Francisco · Est. October 14, 2018 · Solar Powered
+  <br style="margin-bottom:0.4rem">
+  Happy Hours are by invitation — <a href="https://petersargent.substack.com" style="color:rgba(255,255,255,0.4);text-decoration:none">subscribe to the newsletter</a> for announcements
+</footer>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Beer details</span>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <a class="modal-open-link" id="modal-ext-link" href="#" target="_blank" rel="noopener">
+          Open in Google Docs ↗
+        </a>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <iframe class="modal-iframe" id="modal-iframe" src="" title="Beer details"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── TAP LIST DATA ─────────────────────────────────────────────────────────────
+// Replace doc_url values with your actual Google Doc share links once uploaded.
+// Format: https://docs.google.com/document/d/DOCUMENT_ID/preview  (use /preview for iframe)
+// Leave doc_url as "" for beers not yet uploaded — button still shows but doesn't open modal.
+
+const TAP_BEERS = [
+  {
+    num:      "222",
+    name:     "Millet Märzen",
+    style:    "Alternative Grain Beer",
+    style_code: "31A",
+    abv:      "6.4%",
+    ibu:      "19",
+    doc_url:  "https://docs.google.com/document/d/1xrnsxt_ZWl-gn0-B2_hIz1urdT2wmEfp/edit",
+  },
+  {
+    num:      "226",
+    name:     "Märzen",
+    style:    "Märzen",
+    style_code: "06A",
+    abv:      "6.2%",
+    ibu:      "21",
+    doc_url:  "https://docs.google.com/document/d/1JWYhizajhEQY__UfNVJsxb7SfbUS7jus/edit",
+  },
+  {
+    num:      "227",
+    name:     "Muscovado Strong Ale",
+    style:    "Alternative Sugar Beer",
+    style_code: "31B",
+    abv:      "8.8%",
+    ibu:      "40",
+    doc_url:  "https://docs.google.com/document/d/18WB-6ora-3XDZ-zSiENUdDk5rxqQl7Dp/edit",
+  },
+  {
+    num:      "237",
+    name:     "Australian Sparkling Ale",
+    style:    "Australian Sparkling Ale",
+    style_code: "12B",
+    abv:      "5.1%",
+    ibu:      "21",
+    doc_url:  "https://docs.google.com/document/d/1Z6Ap4-KDbrprsTD9ujkro9WcgajWU_By/edit",
+  },
+  {
+    num:      "239",
+    name:     "Lone Pint Yellow Rose SMaSH IPA v. 3",
+    style:    "Hazy IPA",
+    style_code: "21C",
+    abv:      "6.7%",
+    ibu:      "49",
+    doc_url:  "https://docs.google.com/document/d/1pNkuWee8XjwJN7VCQZnzxrxdFyOKjEwj/edit",
+  },
+  {
+    num:      "240",
+    name:     "Irish Extra Stout",
+    style:    "Irish Extra Stout",
+    style_code: "15C",
+    abv:      "6.4%",
+    ibu:      "42",
+    doc_url:  "https://docs.google.com/document/d/1NKsFl06rIdjkilnSlQpviSdeRqf6sKHB/edit",
+  },
+  {
+    num:      "244",
+    name:     "Qvick Kveik Saison",
+    style:    "Saison",
+    style_code: "25B",
+    abv:      "5.1%",
+    ibu:      "21",
+    doc_url:  "https://docs.google.com/document/d/11JuI3YsdHy3kUDWQdyyiKzsUMymibUtu/edit",
+  },
+];
+
+// ── Render tap buttons ────────────────────────────────────────────────────────
+function renderTapGrid() {
+  const grid = document.getElementById('tap-grid');
+  grid.innerHTML = TAP_BEERS.map(b => {
+    const hasDoc = b.doc_url && b.doc_url.trim() !== '';
+    const clickAttr = hasDoc
+      ? `onclick="openBeer('${b.doc_url}', '${b.name.replace(/'/g,"\\'")}')"`
+      : 'class="beer-btn no-doc"';
+    const cls = hasDoc ? 'beer-btn' : 'beer-btn no-doc';
+    return `
+      <div class="${cls}" ${hasDoc ? `onclick="openBeer('${b.doc_url.replace(/'/g,"\\'")}','${b.name.replace(/'/g,"\\'")}','${b.num}')" role="button" tabindex="0"` : ''}>
+        <div class="btn-style-badge">${b.style_code} · ${b.style}</div>
+        <span class="btn-name">${b.name}</span>
+        <div class="btn-specs">
+          <span><span class="btn-spec-val">${b.abv}</span> ABV</span>
+          <span><span class="btn-spec-val">${b.ibu}</span> IBU</span>
+        </div>
+        <div class="btn-batch">Batch #${b.num}</div>
+        ${hasDoc ? '<div class="btn-arrow">→</div>' : ''}
+      </div>`;
+  }).join('');
+}
+
+// ── Modal functions ───────────────────────────────────────────────────────────
+function openBeer(docUrl, name, num) {
+  document.getElementById('modal-title').textContent = `#${num} — ${name}`;
+  // Convert /edit URL to /preview for iframe embedding
+  const previewUrl = docUrl.replace('/edit', '/preview').replace('/pub', '/preview');
+  document.getElementById('modal-iframe').src = previewUrl;
+  document.getElementById('modal-ext-link').href = docUrl;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-iframe').src = '';
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Keyboard nav for buttons
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.activeElement.classList.contains('beer-btn')) {
+    document.activeElement.click();
+  }
+});
+
+renderTapGrid();
+</script>
+</body>
+</html>
