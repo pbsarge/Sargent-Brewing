@@ -307,7 +307,7 @@
     height: 100%;
     background: linear-gradient(90deg, var(--gold), #d4a520);
     border-radius: 999px;
-    width: 75.6%;
+    width: 74.8%;
     transition: width 1s ease;
   }
   .quest-labels {
@@ -696,7 +696,7 @@
   .tap-section-outer::before {
     content: '';
     position: absolute; inset: 0;
-    background: rgba(250,248,242,0.55);
+    background: rgba(250,248,242,0.30);
     pointer-events: none;
     z-index: 0;
   }
@@ -761,14 +761,14 @@
 
   .quest-subheading {
     font-family: var(--serif);
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     font-weight: 700;
     text-transform: none;
     letter-spacing: 0.01em;
-    color: rgba(255,255,255,0.9);
+    color: #fff;
     margin: 2.5rem 0 1rem;
     padding-bottom: 0.6rem;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
   }
   .quest-made-grid {
     display: grid;
@@ -789,12 +789,12 @@
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 4px;
-    color: rgba(255,255,255,0.6);
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.4rem 1rem;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
     margin-top: 0.75rem;
     transition: background 0.15s;
@@ -834,8 +834,8 @@
         <span class="stat-label">Batches brewed</span>
       </div>
       <div class="stat">
-        <span class="stat-num">93</span>
-        <span class="stat-label">BJCP styles</span>
+        <span class="stat-num">92</span>
+        <span class="stat-label">BJCP styles made</span>
       </div>
       <div class="stat">
         <span class="stat-num">75<small style="font-size:1.2rem">%</small></span>
@@ -862,6 +862,69 @@
 </section>
 </div><!-- end tap-section-outer -->
 
+<!-- ── WHAT'S COMING ── -->
+<section class="coming-section" id="coming">
+  <div class="coming-inner">
+    <div class="section-header">
+      <h2 class="section-title">What's Coming</h2>
+      <span class="section-tag">On deck &amp; in the works</span>
+    </div>
+
+    <h3 class="coming-subhead">Coming Soon</h3>
+    <div class="coming-grid">
+
+      <div class="coming-card">
+        <div class="coming-card-name">Ray Found's MACC IPA</div>
+        <div class="coming-card-style">21A · American IPA</div>
+        <p class="coming-card-notes">A recipe from Ray Found, longtime brewing collaborator and friend. MACC IPA — details to follow on release.</p>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-card-name">Wheatwine</div>
+        <div class="coming-card-style">22D · Wheatwine</div>
+        <p class="coming-card-notes">Rich, malty, and wheat-forward. A new BJCP style for the quest, currently conditioning.</p>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-card-name">Life is Helles</div>
+        <div class="coming-card-style">04A · Munich Helles</div>
+        <p class="coming-card-notes">A 15-gallon batch — triple the usual. Light, crisp, and effortlessly drinkable. Good for a crowd.</p>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-card-name">Smoke Bomb Imperial Chipotle Porter</div>
+        <div class="coming-card-style">30A · Spice, Herb, or Vegetable Beer</div>
+        <p class="coming-card-notes">Big, smoky, and aggressively seasoned. Chipotle peppers meet imperial porter. A new BJCP style for the quest.</p>
+      </div>
+
+    </div>
+
+    <h3 class="coming-subhead" style="margin-top:2.5rem">In the Works</h3>
+    <p style="font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;max-width:600px">Beers currently fermenting, conditioning, or aging — release still a ways off.</p>
+    <div class="coming-grid">
+
+      <div class="coming-card" style="border-left-color:var(--gold)">
+        <div class="coming-card-name">Kate the Great RIS</div>
+        <div class="coming-card-style">20C · Russian Imperial Stout</div>
+        <p class="coming-card-notes">A massive, barrel-worthy RIS. Currently conditioning — named in the tradition of the Peter the Great series.</p>
+      </div>
+
+      <div class="coming-card" style="border-left-color:var(--gold)">
+        <div class="coming-card-name">Peter the Great RIS</div>
+        <div class="coming-card-style">20C · Imperial Stout · 33A Wood-Aged</div>
+        <p class="coming-card-notes">Russian Imperial Stout aging in a whiskey barrel. Counts toward 33A Wood-Aged Beer for the BJCP Quest.</p>
+      </div>
+
+      <div class="coming-card" style="border-left-color:var(--gold)">
+        <div class="coming-card-name">Lambic 2026 — faux &amp; real</div>
+        <div class="coming-card-style">23D · Lambic</div>
+        <p class="coming-card-notes">Two 2026 lambic vintages aging alongside the 2025. The faux is kettle-soured; the real underwent open fermentation. Both destined for the Gueuze blend in 2028.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── BJCP QUEST ── -->
 <section class="quest-section" id="quest">
   <div class="quest-inner">
@@ -877,7 +940,7 @@
     </div>
     <div class="quest-labels">
       <span>0 styles</span>
-      <span>93 of 123 complete — 75.6%</span>
+      <span>92 of 123 complete — 75.6%</span>
       <span>Oct 14, 2028</span>
     </div>
     <div class="quest-legend">
@@ -897,6 +960,7 @@
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Brown</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Red</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Rye</div></div>
+      <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">22D. Wheatwine</div></div>
       <div class="quest-item"><div class="quest-dot fermenting"></div><div class="quest-item-name">23C. Oud Bruin</div></div>
       <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">23E. Gueuze <em style="font-size:0.58rem;opacity:0.6">— blending 2028</em></div></div>
       <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">23F. Fruit Lambic <em style="font-size:0.58rem;opacity:0.6">— planned</em></div></div>
@@ -913,6 +977,7 @@
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29A. Fruit Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29B. Fruit and Spice Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29C. Specialty Fruit Beer</div></div>
+      <div class="quest-item"><div class="quest-dot fermenting"></div><div class="quest-item-name">30A. Spice, Herb, or Vegetable Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">30D. Specialty Spice Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">32A. Classic Smoked Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">32B. Specialty Smoked Beer</div></div>
@@ -1694,6 +1759,15 @@ const TAP_BEERS = [
     abv:      "5.1%",
     ibu:      "21",
     doc_url:  "https://docs.google.com/document/d/11JuI3YsdHy3kUDWQdyyiKzsUMymibUtu/edit",
+  },
+  {
+    num:      "242",
+    name:     "Ein (nicht) Leichterbier",
+    style:    "German Leichtbier",
+    style_code: "05A",
+    abv:      "3.5%",
+    ibu:      "23",
+    doc_url:  "https://docs.google.com/document/d/1j8UdfV5E1Jtc1d68AEE_Lc8OKjjLebqf6ZK-WjPP0Dc/edit",
   },
 ];
 
