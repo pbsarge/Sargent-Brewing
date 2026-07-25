@@ -335,9 +335,10 @@
     border-radius: 50%;
     flex-shrink: 0;
   }
-  .quest-dot.done     { background: var(--gold); }
-  .quest-dot.progress { background: #7bc67a; }
-  .quest-dot.planned  { background: rgba(255,255,255,0.35); }
+  .quest-dot.done       { background: var(--gold); }
+  .quest-dot.progress   { background: #7bc67a; }
+  .quest-dot.aging      { background: #c09a3e; border: 1px solid rgba(255,255,255,0.4); }
+  .quest-dot.still-to-go { background: rgba(255,255,255,0.18); }
   .quest-item-name {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -847,11 +848,11 @@
         <span class="stat-label">BJCP styles brewed</span>
       </div>
       <div class="stat">
-        <span class="stat-num">93</span>
+        <span class="stat-num">94</span>
         <span class="stat-label">BJCP styles released</span>
       </div>
       <div class="stat">
-        <span class="stat-num">76<small style="font-size:1.2rem">%</small></span>
+        <span class="stat-num">77<small style="font-size:1.2rem">%</small></span>
         <span class="stat-label">Quest progress</span>
       </div>
       <div class="stat">
@@ -992,53 +993,48 @@
     </div>
     <div class="quest-labels">
       <span>0 styles</span>
-      <span>93 of 122 complete — 76.2%</span>
+      <span>94 of 122 complete — 77.0%</span>
       <span>Oct 14, 2028</span>
     </div>
     <div class="quest-legend">
-      <span><span class="quest-dot fermenting" style="display:inline-block"></span> Fermenting</span>
-      <span><span class="quest-dot conditioning" style="display:inline-block"></span> Conditioning</span>
-      <span><span class="quest-dot planned" style="display:inline-block"></span> Planned</span>
-      <span><span class="quest-dot still-to-go" style="display:inline-block"></span> Still to go</span>
+      <span><span class="quest-dot aging" style="display:inline-block"></span> Aging / conditioning</span>
+      <span><span class="quest-dot still-to-go" style="display:inline-block"></span> Not yet brewed or released</span>
     </div>
-    <div class="quest-subheading">BJCP Styles Yet to Brew</div>
+    <div class="quest-subheading">BJCP Styles Not Yet Released</div>
     <div class="quest-grid">
       <!-- Remaining 30 styles -->
-      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">02C. International Dark Lager</div></div>
-      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">16D. Foreign Extra Stout</div></div>
-      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">17D. English Barleywine</div></div>
-      <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">33A. Wood-Aged Beer</div></div>
+      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">02C. International Dark Lager</div></div>
+      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">17D. English Barleywine</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">33A. Wood-Aged Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Black</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Brown</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Red</div></div>
-      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">21B. Specialty IPA: Rye</div></div>
-      <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">22D. Wheatwine</div></div>
-      <div class="quest-item"><div class="quest-dot fermenting"></div><div class="quest-item-name">23C. Oud Bruin</div></div>
-      <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">23E. Gueuze <em style="font-size:0.58rem;opacity:0.6">— blending 2028</em></div></div>
-      <div class="quest-item"><div class="quest-dot conditioning"></div><div class="quest-item-name">23F. Fruit Lambic <em style="font-size:0.58rem;opacity:0.6">— planned</em></div></div>
-      <div class="quest-item"><div class="quest-dot planned"></div><div class="quest-item-name">27A. Kentucky Common</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">22D. Wheatwine</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">23C. Oud Bruin</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">23E. Gueuze <em style="font-size:0.58rem;opacity:0.6">— blending 2028</em></div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">23F. Fruit Lambic <em style="font-size:0.58rem;opacity:0.6">— planned</em></div></div>
+      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. Kentucky Common</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. Lichtenhainer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. London Brown Ale</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. Piwo Grodziskie</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. Pre-Prohibition Porter</div></div>
-      <div class="quest-item"><div class="quest-dot fermenting"></div><div class="quest-item-name">27A. Roggenbier</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">27A. Roggenbier</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">27A. Sahti</div></div>
-      <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">28A. Brett Beer</div></div>
+      <div class="quest-item"><div class="quest-dot aging"></div><div class="quest-item-name">28A. Brett Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">28B. Mixed-Fermentation Sour</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">28C. Wild Specialty Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29A. Fruit Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29B. Fruit and Spice Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">29C. Specialty Fruit Beer</div></div>
-      <div class="quest-item"><div class="quest-dot fermenting"></div><div class="quest-item-name">30A. Spice, Herb, or Vegetable Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">30D. Specialty Spice Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">32A. Classic Smoked Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">32B. Specialty Smoked Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">33B. Specialty Wood-Aged Beer</div></div>
       <div class="quest-item"><div class="quest-dot still-to-go"></div><div class="quest-item-name">34C. Experimental Beer</div></div>
           </div>
-    <div class="quest-subheading">BJCP Styles Brewed — 93 of 123</div>
+    <div class="quest-subheading">BJCP Styles Brewed — 94 of 122</div>
     <button class="quest-collapse-btn" onclick="toggleMade(this)" aria-expanded="false">
-      Show 92 brewed styles &darr;
+      Show 94 brewed styles &darr;
     </button>
     <div class="quest-made-grid" id="quest-made" style="display:none">
       <div class="quest-made-item"><div class="quest-dot"></div><div class="quest-item-name">01A. American Light Lager</div></div>
@@ -2208,7 +2204,7 @@ function toggleMade(btn) {
   const expanded = btn.getAttribute('aria-expanded') === 'true';
   if (expanded) {
     grid.style.display = 'none';
-    btn.innerHTML = 'Show 92 brewed styles &darr;';
+    btn.innerHTML = 'Show 94 brewed styles &darr;';
     btn.setAttribute('aria-expanded', 'false');
   } else {
     grid.style.display = 'grid';
