@@ -839,7 +839,7 @@
     <p class="hero-sub">Solar-powered homebrewery · San Francisco · est. 2018</p>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">252</span>
+        <span class="stat-num">256</span>
         <span class="stat-label">Batches brewed</span>
       </div>
       <div class="stat">
@@ -855,7 +855,7 @@
         <span class="stat-label">Quest progress</span>
       </div>
       <div class="stat">
-        <span class="stat-num">265</span>
+        <span class="stat-num">259</span>
         <span class="stat-label">Newsletters</span>
       </div>
     </div>
@@ -889,27 +889,27 @@
     <div class="coming-grid">
 
       <div class="coming-card">
-        <div class="coming-card-name">Brett Beer</div>
-        <div class="coming-card-style">28A &middot; Brett Beer</div>
-        <p class="coming-card-notes">A Brettanomyces-fermented ale currently conditioning. Funky, complex, and a new BJCP style for the quest.</p>
-      </div>
-
-      <div class="coming-card">
         <div class="coming-card-name">Munich Helles (extract)</div>
         <div class="coming-card-style">04A &middot; Munich Helles</div>
-        <p class="coming-card-notes">A crisp, malt-forward lager brewed from extract. Clean and refreshing.</p>
+        <p class="coming-card-notes">A crisp, malt-forward lager brewed from extract. Clean and refreshing. A new BJCP style for the quest.</p>
       </div>
 
       <div class="coming-card">
-        <div class="coming-card-name">Foreign Extra Stout</div>
-        <div class="coming-card-style">16D &middot; Foreign Extra Stout</div>
-        <p class="coming-card-notes">A robust, roasty stout brewed for warmer climates. A new BJCP style for the quest.</p>
+        <div class="coming-card-name">Festbier</div>
+        <div class="coming-card-style">04B &middot; Festbier</div>
+        <p class="coming-card-notes">Currently fermenting. A traditional Munich-style Festbier brewed with W-34/70 lager yeast.</p>
       </div>
 
       <div class="coming-card">
-        <div class="coming-card-name">GeoWash Bier</div>
-        <div class="coming-card-style">Coming soon</div>
-        <p class="coming-card-notes">Details forthcoming.</p>
+        <div class="coming-card-name">Kitchen Sink II</div>
+        <div class="coming-card-style">01D &middot; American Wheat Beer &mdash; Dark Honey Wheat Ale</div>
+        <p class="coming-card-notes">Currently fermenting. A dark honey wheat ale.</p>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-card-name">Sahti</div>
+        <div class="coming-card-style">27A &middot; Historical Beer: Sahti</div>
+        <p class="coming-card-notes">A Finnish farmhouse ale — one of the oldest beer styles still brewed today. A new BJCP style for the quest.</p>
       </div>
 
     </div>
@@ -925,9 +925,9 @@
       </div>
 
       <div class="coming-card" style="border-left-color:var(--gold)">
-        <div class="coming-card-name">Roggenbier</div>
-        <div class="coming-card-style">27A &middot; Historical Beer: Roggenbier</div>
-        <p class="coming-card-notes">Currently fermenting. A rye-based Dunkelweizen &mdash; spicy and earthy, a new BJCP style for the quest.</p>
+        <div class="coming-card-name">Lambic 2026 &mdash; faux &amp; real</div>
+        <div class="coming-card-style">23D &middot; Lambic</div>
+        <p class="coming-card-notes">Two 2026 lambic vintages aging alongside the 2025. The faux is kettle-soured; the real underwent open fermentation. Both destined for the Gu&euml;uze blend in 2028.</p>
       </div>
 
       <div class="coming-card" style="border-left-color:var(--gold)">
@@ -956,9 +956,21 @@
       </div>
 
       <div class="coming-card" style="border-left-color:var(--gold)">
-        <div class="coming-card-name">Lambic 2026 &mdash; faux &amp; real</div>
-        <div class="coming-card-style">23D &middot; Lambic</div>
-        <p class="coming-card-notes">Two 2026 lambic vintages aging alongside the 2025. The faux is kettle-soured; the real underwent open fermentation. Both destined for the Gu&euml;uze blend in 2028.</p>
+        <div class="coming-card-name">Roggenbier</div>
+        <div class="coming-card-style">27A &middot; Historical Beer: Roggenbier</div>
+        <p class="coming-card-notes">A rye-based Dunkelweizen &mdash; spicy and earthy, a new BJCP style for the quest.</p>
+      </div>
+
+      <div class="coming-card" style="border-left-color:var(--gold)">
+        <div class="coming-card-name">Brett Beer</div>
+        <div class="coming-card-style">28A &middot; Brett Beer</div>
+        <p class="coming-card-notes">A Brettanomyces-fermented ale currently conditioning. Funky, complex, and a new BJCP style for the quest.</p>
+      </div>
+
+      <div class="coming-card" style="border-left-color:var(--gold)">
+        <div class="coming-card-name">English Barleywine</div>
+        <div class="coming-card-style">17D &middot; English Barleywine</div>
+        <p class="coming-card-notes">Currently fermenting. A big, malt-forward barleywine &mdash; a new BJCP style for the quest.</p>
       </div>
 
     </div>
@@ -2086,24 +2098,6 @@
 
 const TAP_BEERS = [
   {
-    num:        "242",
-    name:       "Ein (nicht) Leichterbier",
-    style:      "German Leichtbier",
-    style_code: "05A",
-    abv:        "3.5%",
-    ibu:        "23",
-    doc_url:    "https://docs.google.com/document/d/1j8UdfV5E1Jtc1d68AEE_Lc8OKjjLebqf6ZK-WjPP0Dc/edit",
-  },
-  {
-    num:        "244",
-    name:       "Qvick Kveik Saison",
-    style:      "Saison",
-    style_code: "25B",
-    abv:        "5.1%",
-    ibu:        "21",
-    doc_url:    "https://docs.google.com/document/d/11JuI3YsdHy3kUDWQdyyiKzsUMymibUtu/edit",
-  },
-  {
     num:        "247",
     name:       "Smoke Bomb Imperial Chipotle Porter",
     style:      "Spice, Herb, or Vegetable Beer",
@@ -2113,33 +2107,6 @@ const TAP_BEERS = [
     doc_url:    "https://docs.google.com/document/d/1Bd6itu71-aoXIStVZ0sccP2Vny-1z9XG8mwZ28IbI1w/edit",
   },
   {
-    num:        "248",
-    name:       "Ray Found's MACC IPA",
-    style:      "American IPA",
-    style_code: "21A",
-    abv:        "7.7%",
-    ibu:        "41",
-    doc_url:    "https://docs.google.com/document/d/13j6I7H4jLPiKK6tV_g366NoTStUPhA2KoKexEC7tDCI/edit",
-  },
-  {
-    num:        "250",
-    name:       "Allagash White v. 1",
-    style:      "Witbier",
-    style_code: "24A",
-    abv:        "5.4%",
-    ibu:        "20",
-    doc_url:    "https://docs.google.com/document/d/1eAPBMURLm3aRVBcOuf_RPY6IUWfchG0o5gJcs5VRtzA/edit",
-  },
-  {
-    num:        "251",
-    name:       "Kentucky Common",
-    style:      "Historical Beer: Kentucky Common",
-    style_code: "27A",
-    abv:        "5.2%",
-    ibu:        "21",
-    doc_url:    "https://docs.google.com/document/d/1ELgPALLhseS3VzC8ISmVCXG8YiDctgEkReDhIkltM14/edit",
-  },
-  {
     num:        "252",
     name:       "Rye IPA",
     style:      "Specialty IPA: Rye IPA",
@@ -2147,6 +2114,33 @@ const TAP_BEERS = [
     abv:        "6.3%",
     ibu:        "66",
     doc_url:    "https://docs.google.com/document/d/1ndFzXxQfbY1PVads_EVboM_M2nfJ1oT1Aksjm0NjtHc/edit",
+  },
+  {
+    num:        "255",
+    name:       "Foreign Extra Stout",
+    style:      "Foreign Extra Stout",
+    style_code: "16D",
+    abv:        "7.5%",
+    ibu:        "64",
+    doc_url:    "https://docs.google.com/document/d/1b5VlwjiCasZM-zPxDdTVu8GsCYmMcNucK5CDz1e-cXY/edit",
+  },
+  {
+    num:        "256",
+    name:       "G.W. Small Beer",
+    style:      "American Porter",
+    style_code: "20A",
+    abv:        "5.5%",
+    ibu:        "??",
+    doc_url:    "https://docs.google.com/document/d/1a5Hu9QoTmPfeFqWRMzAM93DHaMu5HL8D8qRLamxoo3Q/edit",
+  },
+  {
+    num:        "258",
+    name:       "Allagash White v. 2",
+    style:      "Witbier",
+    style_code: "24A",
+    abv:        "5.5%",
+    ibu:        "25",
+    doc_url:    "https://docs.google.com/document/d/1WfvsVSJObuTOaW7XGsycfiU-IVpaVKG5_mP-BwWv3fg/edit",
   },
 ];
 
